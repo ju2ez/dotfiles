@@ -1,0 +1,122 @@
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+
+
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+" Make sure you use single quotes
+
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
+
+" Any valid git URL is allowed
+Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+
+" Multiple Plug commands can be written in a single line using | separators
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+
+" Using a non-master branch
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+
+" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
+Plug 'fatih/vim-go', { 'tag': '*' }
+
+" Plugin options
+Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+
+" Plugin outside ~/.vim/plugged with post-update hook
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+" Unmanaged plugin (manually installed and updated)
+Plug '~/my-prototype-plugin'
+
+" auto-indentation
+Plug 'vim-scripts/indentpython.vim'
+
+" auto-complete
+Plug 'Valloric/YouCompleteMe'
+
+" syntax checking/higlighting
+Plug 'vim-syntastic/syntastic'
+
+" pep8 checking
+Plug 'nvie/vim-flake8'
+
+" coloer schemes
+Plug 'jnurmine/Zenburn'
+Plug 'altercation/vim-colors-solarized'
+
+" file browsing
+Plug 'scrooloose/nerdtree'
+
+" super search
+Plug 'kien/ctrlp.vim'
+
+" git integration
+Plug 'tpope/vim-fugitive'
+
+" powerline
+Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+" Initialize plugin system
+call plug#end()
+
+
+" pep8 indentation
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+" if there are other filetypes
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+
+" flagging unnecessary whitespace
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+" utf-8 support
+set encoding=utf-8
+
+" remeber to install youCompleteMe 
+" w.r.t the github repo instructions
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" let code look pretty
+let python_highlight_all=1
+syntax on
+
+
+" select color scheme
+if has('gui_running')
+  set background=dark
+  colorscheme solarized
+else
+  colorscheme zenburn
+endif
+call togglebg#map("<F5>")
+
+" line numbering
+set nu
+
+" system clipboard
+set clipboard=unnamed
+
