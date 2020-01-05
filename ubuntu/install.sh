@@ -69,7 +69,7 @@ fi
 # synchronize home dir with rcup
 rcup -v
 
-cp ./dotfiles/* ~/.dotfiles/
+cp ../dotfiles/* ~/.dotfiles/
 
 #set zsh to default
 chsh -s /usr/bin/zsh root 
