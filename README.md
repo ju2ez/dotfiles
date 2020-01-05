@@ -14,7 +14,7 @@ If you want to adjust the dotfiles you only need to change the files that are in
 ## Quick-Run
 ~~~~
 git clone https://github.com/julianhatzky/dotfiles ~/Downloads/dotfiles
-chmod a+x ~/Downloads/dotfiles/dotfiles/ubuntu/install.sh
+chmod a+x ~/Downloads/dotfiles/ubuntu/install.sh
 sudo ~/Downloads/dotfiles/ubuntu/install.sh
 
 
