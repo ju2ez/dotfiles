@@ -1,5 +1,8 @@
 # A dotfile configuration script for Ubuntu systems featuring VIM, ZSH, TMUX and more
 
+I couldn't find a nice out-of-the box dotfile script/repo that features all of the above configs and plugins, so I build my own.
+
+! ENJOY ! Use the Quick-Run for easy installation on Ubuntu systems.
 
 No warranty for MAC OS X or other Linux/Unix distributions to work.
 
@@ -16,9 +19,6 @@ sudo ~/Downloads/dotfiles/ubuntu/install.sh
 
 
 ~~~~
-
-
-
 
 
 # warning
