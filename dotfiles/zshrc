@@ -76,7 +76,7 @@ plugins=(
 	autopep8
 	python
 	virtualenv
-	autosuggestions
+	zsh-autosuggestions
 	)
 
 source $ZSH/oh-my-zsh.sh
