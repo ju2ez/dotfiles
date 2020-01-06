@@ -70,9 +70,8 @@ fi
 rcup -v
 
 # use relative parent path and copy dotfiles 
-parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
-cd "$parent_path"
-cp ./dotfiles/* ~/.dotfiles/
+script_dir="$(dirname $(dirname $(realpath $0)) )"
+cp "$script_dir"/dotfiles/* ~/.dotfiles/
 
 #set zsh to default
 chsh -s /usr/bin/zsh root 
