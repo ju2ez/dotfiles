@@ -86,6 +86,9 @@ makepkg -si
 mkdir -p ~/.local/share/fonts
 cd ~/.local/share/fonts && sudo curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
 
+cd ~.vim/plugged/YouCompleteMe
+./install.sh --clang-completer
+
 echo "please run p10k configure after restart of the terminal"
 echo "Note::: you need to log out and login in order for zsh to be default console"
 
