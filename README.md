@@ -11,14 +11,20 @@ In order to successfully run the script you should have Ubuntu 18.04 or higher.
 If you want to adjust the dotfiles you only need to change the files that are in the dotfiles folder and run the script afterwards.
 
  	
-## Quick-Run
+## Quick-Run for Ubuntu
 ~~~~
 git clone https://github.com/julianhatzky/dotfiles ~/Downloads/dotfiles
 chmod a+x ~/Downloads/dotfiles/ubuntu/install.sh
-sudo ~/Downloads/dotfiles/ubuntu/install.sh
-
-
+~/Downloads/dotfiles/ubuntu/install.sh
 ~~~~
+
+## Quick-Run for Arch Linux
+~~~~
+git clone https://github.com/julianhatzky/dotfiles ~/Downloads/dotfiles
+chmod a+x ~/Downloads/dotfiles/arch/install.sh
+~/Downloads/dotfiles/arch/install.sh
+~~~~
+
 
 
 # warning
