@@ -1,4 +1,4 @@
-# A dotfile configuration script for Ubuntu systems featuring VIM, ZSH, TMUX and more
+# A dotfile configuration script for Ubuntu and Arch Linux featuring VIM, ZSH, TMUX and more
 
 I couldn't find a nice out-of-the box dotfile script/repo that features all of the above configs and plugins, so I build my own.
 
