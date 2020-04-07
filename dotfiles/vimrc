@@ -65,31 +65,57 @@ Plug 'kien/ctrlp.vim'
 " git integration
 Plug 'tpope/vim-fugitive'
 
-" powerline
-Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+" powerline or air
+if has('nvim')
+	Plug 'vim-airline/vim-airline'
+else
+	Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+endif
+
+
+" ipython
+if has('nvim')
+	Plug 'bfredl/nvim-ipy' 
+else 
+	Plug 'ivanov/vim-ipython'
+endif 
+
+" latex
+Plug 'lervag/vimtex'
+
+Plug 'jupyter-vim/jupyter-vim'
+
+" grammar check
+Plug 'dpelle/vim-LanguageTool'
+
 
 " Initialize plugin system
 call plug#end()
 
+if has('vim')
+	" pep8 indentation
+	au BufNewFile,BufRead *.py
+	    \ set tabstop=4
+	    \ set softtabstop=4
+	    \ set shiftwidth=4
+	    \ set textwidth=79
+	    \ set expandtab
+	    \ set autoindent
+	    \ set fileformat=unix
 
-" pep8 indentation
-au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
+	" if there are other filetypes
+	au BufNewFile,BufRead *.js, *.html, *.css
+	    \ set tabstop=2
+	    \ set softtabstop=2
+	    \ set shiftwidth=2
 
-" if there are other filetypes
-au BufNewFile,BufRead *.js, *.html, *.css
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
-
-" flagging unnecessary whitespace
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+	" flagging unnecessary whitespace
+	au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+else
+	" mappings for ipython
+	map <silent> <F1> :IPython<CR>
+	map <silent> <F6> <Plug>(IPy-RunAll)
+endif
 
 " utf-8 support
 set encoding=utf-8
@@ -119,3 +145,9 @@ set nu
 " system clipboard
 set clipboard=unnamed
 
+" set spellcheck
+setlocal spell spelllang=en_us,de_de
+let g:languagetool_jar="~/Programs/LanguageTool-4.8/languagetool-commandline.jar"
+
+" change map leader
+" :let mapleader = ","
